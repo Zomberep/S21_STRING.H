@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <string.h>
+#include "../s21_string.h"
+
+#test test1
+char buff1[] = "Hello world";
+char buff2[] = "Hell";
+ck_assert_uint_eq(s21_strcspn(buff1, buff2), strcspn(buff1, buff2));
+
+#test test2
+char buff1[] = "Hello world";
+char buff2[] = "ell";
+ck_assert_uint_eq(s21_strcspn(buff1, buff2), strcspn(buff1, buff2));
+
+#test test3
+char buff1[] = "Hello world";
+char buff2[] = "vlaiebv";
+ck_assert_uint_eq(s21_strcspn(buff1, buff2), strcspn(buff1, buff2));
+
+#test test4
+char buff1[] = "Hello world";
+char buff2[] = "q";
+ck_assert_uint_eq(s21_strcspn(buff1, buff2), strcspn(buff1, buff2));
+
+#test test5
+char buff1[] = "Hello world";
+char buff2[] = "Hello world";
+ck_assert_uint_eq(s21_strcspn(buff1, buff2), strcspn(buff1, buff2));
+
+#test test6
+char buff1[] = "Hello world";
+char buff2[] = "llo world";
+ck_assert_uint_eq(s21_strcspn(buff1, buff2), strcspn(buff1, buff2));
+
+#test test7
+char buff1[] = "Hello world";
+char buff2[] = "Hllo world";
+ck_assert_uint_eq(s21_strcspn(buff1, buff2), strcspn(buff1, buff2));
+
+#test test8
+char buff1[] = "Hello world";
+char buff2[] = "qqqqqqqqq";
+ck_assert_uint_eq(s21_strcspn(buff1, buff2), strcspn(buff1, buff2));
+
+#test test9
+char buff1[] = "Hello world";
+char buff2[] = "";
+ck_assert_uint_eq(s21_strcspn(buff1, buff2), strcspn(buff1, buff2));
+
+#test test10
+char buff1[] = "\0";
+char buff2[] = "\0";
+ck_assert_uint_eq(s21_strcspn(buff1, buff2), strcspn(buff1, buff2));
+
+#test test11
+char buff1[] = "hello world";
+char buff2[] = "hello world!";
+ck_assert_uint_eq(s21_strcspn(buff1, buff2), strcspn(buff1, buff2));

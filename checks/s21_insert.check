@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <string.h>
+#include "../s21_string.h"
+
+#test test1
+char buff1[] = "Hello  world";
+char buff2[] = "my";
+char res[] = "Hello my world";
+char *ptr = (char *)s21_insert(buff1, buff2, 6);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);
+
+#test test2
+char buff1[] = "my world";
+char buff2[] = "Hello ";
+char res[] = "Hello my world";
+char *ptr = (char *)s21_insert(buff1, buff2, 0);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);
+
+#test test3
+char *buff1 = NULL;
+char *buff2 = NULL;
+char *res = NULL;
+char *ptr = (char *)s21_insert(buff1, buff2, 6);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);
+
+#test test4
+char *buff1 = "jhfebl";
+char *buff2 = NULL;
+char *res = NULL;
+char *ptr = (char *)s21_insert(buff1, buff2, 6);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);
+
+#test test5
+char *buff1 = NULL;
+char *buff2 = "jhfebl";
+char *res = NULL;
+char *ptr = (char *)s21_insert(buff1, buff2, 6);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);
+
+#test test6
+char buff1[] = "my world";
+char buff2[] = "Hello ";
+char *res = NULL;
+char *ptr = (char *)s21_insert(buff1, buff2, 10);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);
+
+#test test7
+char buff1[] = "liegvliwevluiewvuvbl";
+char buff2[] = "11111111";
+char *res = "l11111111iegvliwevluiewvuvbl";
+char *ptr = (char *)s21_insert(buff1, buff2, 1);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);
+
+#test test8
+char buff1[] = "brainysi.21-school.ru";
+char buff2[] = "@student";
+char res[] = "brainysi@student.21-school.ru";
+char *ptr = (char *)s21_insert(buff1, buff2, 8);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);
+
+#test test9
+char buff1[] = "_____";
+char buff2[] = "1";
+char res[] = "____1_";
+char *ptr = (char *)s21_insert(buff1, buff2, 4);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);

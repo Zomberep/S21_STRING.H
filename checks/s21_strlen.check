@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <string.h>
+#include "../s21_string.h"
+
+#test test1
+char buff[] = "Shy bright like a diamond";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));
+
+#test test2
+char buff[] = "\0";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));
+
+#test test3
+char buff[] = "3189576";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));
+
+#test test4
+char buff[] = "Feel the warmth, we'll never die, we're like diamonds in the sky";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));
+
+#test test5
+char buff[] = "Compares two floating point numbers (float) and displays a predefined message with both the condition and input parameters on failure. The operator used for comparison is different for each function and is indicated by the last two letters of the function name.";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));
+
+#test test6
+char buff[] = " ";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));
+
+#test test7
+char buff[] = "0";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));
+
+#test test8
+char buff[] = "Oh, right away";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));
+
+#test test9
+char buff[] = "03.12.24";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));
+
+#test test10
+char buff[] = "...)";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));
+
+#test test11
+char buff[] = "1942, late evening, Bletchley Park, Alan Turing's desk.";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));
+
+#test test12
+char buff[] = "ab\noba";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));
+
+#test test13
+char buff[] = "pupa\0";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));
+
+#test test14
+char buff[] = "\0lupa";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));
+
+#test test15
+char buff[] = "-2374";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));
+
+#test test16
+char buff[] = "-wefh";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));
+
+#test test17
+char buff[] = "";
+ck_assert_uint_eq(s21_strlen(buff), strlen(buff));

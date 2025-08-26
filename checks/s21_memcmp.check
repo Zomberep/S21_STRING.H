@@ -1,0 +1,173 @@
+#include <stdio.h>
+#include <string.h>
+#include "../s21_string.h"
+
+#test test1
+char buff1[] = "123456";
+char buff2[] = "123456";
+size_t l = 2;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);
+
+#test test2
+char buff1[] = "123456";
+char buff2[] = "123456";
+size_t l = 4;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);
+
+#test test3
+char buff1[] = "123456";
+char buff2[] = "23456";
+size_t l = 4;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);
+
+#test test4
+char buff1[] = "123456";
+char buff2[] = "23456";
+size_t l = 2;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);
+
+#test test5
+char buff1[] = "fkfagag";
+char buff2[] = "oiwugeoi";
+size_t l = 4;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);
+
+#test test6
+char buff1[] = "fkfagag";
+char buff2[] = "oiwugeoi";
+size_t l = 1;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);
+
+#test test7
+char buff1[] = "fkfagag";
+char buff2[] = "oiwugeoi";
+size_t l = 6;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);
+
+#test test8
+char buff1[] = "...///...";
+char buff2[] = "@--+-=";
+size_t l = 4;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);
+
+#test test9
+char buff1[] = "fag";
+char buff2[] = "oiwugeoi";
+size_t l = 4;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);
+
+#test test10
+char buff1[] = "...///...";
+char buff2[] = "@-=";
+size_t l = 4;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);
+
+#test test11
+char buff1[] = "...///...";
+char buff2[] = "/0";
+size_t l = 2;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);
+
+#test test12
+char buff1[] = "/0";
+char buff2[] = "oiwugeoi";
+size_t l = 2;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);
+
+#test test13
+char buff1[] = "oiwugeoi";
+char buff2[] = "/0";
+size_t l = 2;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);
+
+#test test14
+char buff1[] = "/0";
+char buff2[] = "...///...";
+size_t l = 2;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);
+
+#test test15
+char buff1[] = "@--+-=";
+char buff2[] = "...///...";
+size_t l = 4;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);
+
+#test test16
+char buff1[] = "@-=";
+char buff2[] = "...///...";
+size_t l = 4;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);
+
+#test test17
+char buff1[100] = {0};
+char buff2[100] = {0};
+size_t l = 4;
+int s21 = s21_memcmp(buff1, buff2, l);
+s21 = s21 < 0 ? -1 : ((s21 == 0) ? 0 : 1);
+int string = memcmp(buff1, buff2, l);
+string = string < 0 ? -1 : ((string == 0) ? 0 : 1);
+ck_assert_int_eq(s21, string);

@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <string.h>
+#include "../s21_string.h"
+
+#test test1
+char buff1[20] = "";
+char buff2[20] = "";
+char buff3[7] = "123456";
+size_t len = strlen(buff3);
+ck_assert_pstr_eq(s21_strncat(buff1, buff3, len), strncat(buff2, buff3, len));
+
+#test test2
+char buff1[20] = "";
+char buff2[20] = "";
+char buff3[7] = "123456";
+size_t len = strlen(buff3) + 3;
+ck_assert_pstr_eq(s21_strncat(buff1, buff3, len), strncat(buff2, buff3, len));
+
+#test test3
+char buff1[20] = "as";
+char buff2[20] = "as";
+char buff3[7] = "123456";
+size_t len = strlen(buff3);
+ck_assert_pstr_eq(s21_strncat(buff1, buff3, len), strncat(buff2, buff3, len));
+
+#test test4
+char buff1[20] = "as";
+char buff2[20] = "as";
+char buff3[7] = "123456";
+size_t len = strlen(buff3) + 1;
+ck_assert_pstr_eq(s21_strncat(buff1, buff3, len), strncat(buff2, buff3, len));
+
+#test test5
+char buff1[20] = "";
+char buff2[20] = "";
+char buff3[7] = "123456";
+size_t len = strlen(buff3);
+char *ptr1 = s21_strncat(buff1, buff3, len);
+char *ptr2 = strncat(buff2, buff3, len);
+ck_assert_pstr_eq(ptr1, ptr2);
+
+#test test6
+char buff1[20] = "";
+char buff2[20] = "";
+char buff3[7] = "123456";
+size_t len = strlen(buff3);
+char *ptr1 = s21_strncat(buff1, buff3, len);
+char *ptr2 = strncat(buff2, buff3, len);
+ck_assert_pstr_eq(ptr1, ptr2);
+
+#test test7
+char buff1[20] = "as";
+char buff2[20] = "as";
+char buff3[7] = "123456";
+size_t len = strlen(buff3);
+char *ptr1 = s21_strncat(buff1, buff3, len);
+char *ptr2 = strncat(buff2, buff3, len);
+ck_assert_pstr_eq(ptr1, ptr2);
+
+#test test8
+char buff1[20] = "as";
+char buff2[20] = "as";
+char buff3[7] = "123456";
+size_t len = strlen(buff3) + 1;
+char *ptr1 = s21_strncat(buff1, buff3, len);
+char *ptr2 = strncat(buff2, buff3, len);
+ck_assert_pstr_eq(ptr1, ptr2);

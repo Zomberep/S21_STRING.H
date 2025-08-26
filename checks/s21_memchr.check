@@ -1,0 +1,111 @@
+#include <stdio.h>
+#include <string.h>
+#include "../s21_string.h"
+
+#test Find_low_case1
+char buff[] = "Searches for the first occurrence of the character c (an unsigned char) in the first n bytes of the string pointed to, by the argument str.";
+int c = 'e';
+size_t len = strlen(buff);
+ck_assert_ptr_eq(s21_memchr(buff, c, len), memchr(buff, c, len));
+
+#test test1
+char buff1[] = "Searches for the first Occurrence of the character c (an unsigned char) in the first n bytes of the string pointed to, by the argument str.";
+int c = 'O';
+size_t len = strlen(buff1);
+ck_assert_ptr_eq(s21_memchr(buff1, c, len), memchr(buff1, c, len));
+
+#test test2
+char buff2[] = "Searches for the first Occurrence of 1the character c (an unsigned char) in the first n bytes of the string pointed to, by the argument str.";
+int c = '1';
+size_t len = strlen(buff2);
+ck_assert_ptr_eq(s21_memchr(buff2, c, len), memchr(buff2, c, len));
+
+#test test3
+char buff3[] = "Searches for the first Occurrence of 1the character c (an unsigned char) in the first n bytes of the string pointed to, by the argument str.";
+int c = '(';
+size_t len = strlen(buff3);
+ck_assert_ptr_eq(s21_memchr(buff3, c, len), memchr(buff3, c, len));
+
+#test test4
+char buff4[] = "Searches for the first Occurrence of 1the character c (an unsigned char) in the first n bytes of the string pointed to, by the argument str.";
+int c = 'w';
+size_t len = strlen(buff4);
+ck_assert_ptr_eq(s21_memchr(buff4, c, len), memchr(buff4, c, len));
+
+#test test5
+char buff5[] = "Searches for the first Occurrence of 1the character c (an unsigned char) in the first n bytes of the string pointed to, by the argument str.";
+int c = 'A';
+size_t len = strlen(buff5);
+ck_assert_ptr_eq(s21_memchr(buff5, c, len), memchr(buff5, c, len));
+
+#test test6
+char buff6[] = "Searches for the first Occurrence of 1the character c (an unsigned char) in the first n bytes of the string pointed to, by the argument str.";
+int c = '2';
+size_t len = strlen(buff6);
+ck_assert_ptr_eq(s21_memchr(buff6, c, len), memchr(buff6, c, len));
+
+#test test7
+char buff7[] = "Searches for the first Occurrence of 1the character c (an unsigned char) in the first n bytes of the string pointed to, by the argument str.";
+int c = '!';
+size_t len = strlen(buff7);
+ck_assert_ptr_eq(s21_memchr(buff7, c, len), memchr(buff7, c, len));
+
+#test test8
+char buff8[] = "a;iur reu!iHav3pHr !viae3rh";
+int c = 'i';
+size_t len = strlen(buff8);
+ck_assert_ptr_eq(s21_memchr(buff8, c, len), memchr(buff8, c, len));
+
+#test test9
+char buff9[] = "a;iur reu!iHav3pHr !viae3rh";
+int c = 'H';
+size_t len = strlen(buff9);
+ck_assert_ptr_eq(s21_memchr(buff9, c, len), memchr(buff9, c, len));
+
+#test test10
+char buff10[] = "a;iur reu!iHav3pHr !viae3rh";
+int c = '3';
+size_t len = strlen(buff10);
+ck_assert_ptr_eq(s21_memchr(buff10, c, len), memchr(buff10, c, len));
+
+#test test11
+char buff11[] = "a;iur reu!iHav3pHr !viae3rh";
+int c = '!';
+size_t len = strlen(buff11);
+ck_assert_ptr_eq(s21_memchr(buff11, c, len), memchr(buff11, c, len));
+
+#test test12
+char buff12[] = "a;iur reu!iHav3pHr !viae3rh";
+int c = 'q';
+size_t len = strlen(buff12);
+ck_assert_ptr_eq(s21_memchr(buff12, c, len), memchr(buff12, c, len));
+
+#test test13
+char buff13[] = "a;iur reu!iHav3pHr !viae3rh";
+int c = 'W';
+size_t len = strlen(buff13);
+ck_assert_ptr_eq(s21_memchr(buff13, c, len), memchr(buff13, c, len));
+
+#test test14
+char buff14[] = "a;iur reu!iHav3pHr !viae3rh";
+int c = '4';
+size_t len = strlen(buff14);
+ck_assert_ptr_eq(s21_memchr(buff14, c, len), memchr(buff14, c, len));
+
+#test test15
+char buff15[] = "a;iur reu!iHav3pHr !viae3rh";
+int c = '.';
+size_t len = strlen(buff15);
+ck_assert_ptr_eq(s21_memchr(buff15, c, len), memchr(buff15, c, len));
+
+#test test16
+char buff15[100] = {0};
+int c = '.';
+size_t len = strlen(buff15);
+ck_assert_ptr_eq(s21_memchr(buff15, c, len), memchr(buff15, c, len));
+
+#test test17
+char buff15[] = "";
+int c = '.';
+size_t len = strlen(buff15);
+ck_assert_ptr_eq(s21_memchr(buff15, c, len), memchr(buff15, c, len));

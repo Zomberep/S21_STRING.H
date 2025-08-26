@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <string.h>
+#include "../s21_string.h"
+
+#test test1
+char buff1[] = "   gfjhghj   ";
+char buff2[] = " ";
+char res[] = "gfjhghj";
+char *ptr = s21_trim(buff1, buff2);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);
+
+#test test2
+char buff1[] = "   gfjh   ghj   ";
+char buff2[] = " ";
+char res[] = "gfjh   ghj";
+char *ptr = s21_trim(buff1, buff2);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);
+
+#test test3
+char *buff1 = NULL;
+char buff2[] = " ";
+char *res = NULL;
+char *ptr = s21_trim(buff1, buff2);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);
+
+#test test4
+char *buff1 = "NULL";
+char *buff2 = NULL;
+char *res = NULL;
+char *ptr = s21_trim(buff1, buff2);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);
+
+#test test5
+char buff1[] = "g.gkejvbke/g";
+char buff2[] = "g";
+char res[] = ".gkejvbke/";
+char *ptr = s21_trim(buff1, buff2);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);
+
+#test test6
+char buff1[] = "g.gkejvbke/g";
+char buff2[] = "g.";
+char res[] = "kejvbke/";
+char *ptr = s21_trim(buff1, buff2);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);
+
+#test test7
+char buff1[] = ".,/?bvailweuvberli./ ,/";
+char buff2[] = ".,/d";
+char res[] = "?bvailweuvberli./ ";
+char *ptr = s21_trim(buff1, buff2);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);
+
+#test test8
+char buff1[] = "blekbveebvjrlib";
+char buff2[] = " ";
+char res[] = "blekbveebvjrlib";
+char *ptr = s21_trim(buff1, buff2);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);
+
+#test test9
+char buff1[] = "    ";
+char buff2[] = " ";
+char res[] = "";
+char *ptr = s21_trim(buff1, buff2);
+ck_assert_pstr_eq(res, ptr);
+if(ptr) free(ptr);

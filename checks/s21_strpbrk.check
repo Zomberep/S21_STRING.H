@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <string.h>
+#include "../s21_string.h"
+
+#test test1
+char buff1[] = "Hello world";
+char buff2[] = "fbelwglf";
+char *res_my = NULL;
+const char *res_string = NULL;
+if(s21_strpbrk(buff1, buff2)) res_my = s21_strpbrk(buff1, buff2);
+if(strpbrk(buff1, buff2)) res_string =  strpbrk(buff1, buff2);
+ck_assert_ptr_eq(res_my, res_string);
+
+#test test2
+char buff1[] = "Hello world";
+char buff2[] = "qz";
+char *res_my = NULL;
+const char *res_string = NULL;
+if(s21_strpbrk(buff1, buff2)) res_my = s21_strpbrk(buff1, buff2);
+if(strpbrk(buff1, buff2)) res_string =  strpbrk(buff1, buff2);
+ck_assert_ptr_eq(res_my, res_string);
+
+#test test3
+char buff1[] = "Hello world";
+char buff2[] = "d";
+char *res_my = "d";
+const char *res_string = NULL;
+if(s21_strpbrk(buff1, buff2)) res_my = s21_strpbrk(buff1, buff2);
+if(strpbrk(buff1, buff2)) res_string =  strpbrk(buff1, buff2);
+ck_assert_ptr_eq(res_my, res_string);
+
+#test test4
+char buff1[] = "Hello world";
+char buff2[] = "Hel";
+char *res_my = "Hello world";
+const char *res_string = NULL;
+if(s21_strpbrk(buff1, buff2)) res_my = s21_strpbrk(buff1, buff2);
+if(strpbrk(buff1, buff2)) res_string =  strpbrk(buff1, buff2);
+ck_assert_ptr_eq(res_my, res_string);
+
+#test test5
+char buff1[] = "9237159";
+char buff2[] = "3";
+char *res_my = "37159";
+const char *res_string = NULL;
+if(s21_strpbrk(buff1, buff2)) res_my = s21_strpbrk(buff1, buff2);
+if(strpbrk(buff1, buff2)) res_string =  strpbrk(buff1, buff2);
+ck_assert_ptr_eq(res_my, res_string);
+
+#test test6
+char buff1[] = "9237159";
+char buff2[] = "4";
+char *res_my = NULL;
+const char *res_string = NULL;
+if(s21_strpbrk(buff1, buff2)) res_my = s21_strpbrk(buff1, buff2);
+if(strpbrk(buff1, buff2)) res_string =  strpbrk(buff1, buff2);
+ck_assert_ptr_eq(res_my, res_string);
+
+#test test7
+char buff1[] = "9237159";
+char buff2[] = "5";
+char *res_my = "59";
+const char *res_string = NULL;
+if(s21_strpbrk(buff1, buff2)) res_my = s21_strpbrk(buff1, buff2);
+if(strpbrk(buff1, buff2)) res_string =  strpbrk(buff1, buff2);
+ck_assert_ptr_eq(res_my, res_string);

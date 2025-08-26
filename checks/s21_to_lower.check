@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <string.h>
+#include "../s21_string.h"
+
+#test test1
+char result[] = "limpopo";
+char test[] = "LIMPOPO";
+char *ptr = (char *)s21_to_lower(test);
+ck_assert_pstr_eq(result, ptr);
+if(ptr) free(ptr);
+
+#test test2
+char result[] = "limpopo";
+char test[] = "lImPoPo";
+char *ptr = (char *)s21_to_lower(test);
+ck_assert_pstr_eq(result, ptr);
+if(ptr) free(ptr);
+
+#test test3
+char result[] = "limpopo and limpapa";
+char test[] = "LIMPOPO AND LIMPAPA";
+char *ptr = (char *)s21_to_lower(test);
+ck_assert_pstr_eq(result, ptr);
+if(ptr) free(ptr);
+
+#test test4
+char result[] = " ";
+char test[] = " ";
+char *ptr = (char *)s21_to_lower(test);
+ck_assert_pstr_eq(result, ptr);
+if(ptr) free(ptr);
+
+#test test5
+char result[] = "!! .. > a";
+char test[] = "!! .. > A";
+char *ptr = (char *)s21_to_lower(test);
+ck_assert_pstr_eq(result, ptr);
+if(ptr) free(ptr);
+
+#test test6
+char result[] = "ingrendients: tomato and olive oil!";
+char test[] = "INGRENDIENTS: TOMATO AND OLIVE OIL!";
+char *ptr = (char *)s21_to_lower(test);
+ck_assert_pstr_eq(result, ptr);
+if(ptr) free(ptr);
+
+
+#test test7
+char result[] = "ingrendients:\n tomato and \nolive oil!";
+char test[] = "INGRENDIENTS:\n TOMATO AND \nOLIVE OIL!";
+char *ptr = (char *)s21_to_lower(test);
+ck_assert_pstr_eq(result, ptr);
+if(ptr) free(ptr);
+
+#test test8
+char result[] = "\n";
+char test[] = "\n";
+char *ptr = (char *)s21_to_lower(test);
+ck_assert_pstr_eq(result, ptr);
+if(ptr) free(ptr);
+
+#test test9
+void *result = "\n";
+char test[] = "\n";
+char *ptr = s21_to_lower(test);
+ck_assert_pstr_eq(result, ptr);
+if(ptr) free(ptr);
+
+#test test10
+char *result = NULL;
+char *test = NULL;
+char *ptr = s21_to_lower(test);
+ck_assert_pstr_eq(result, ptr);
+if(ptr) free(ptr);

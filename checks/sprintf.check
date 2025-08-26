@@ -1,0 +1,783 @@
+#include <stdio.h>
+#include <string.h>
+#include "../s21_string.h"
+
+#test test1
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%d", 7);
+int res2 = sprintf(res, "%d", 7);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test2
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%f", 7.01);
+int res2 = sprintf(res, "%f", 7.01);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test3
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%d", -412);
+int res2 = sprintf(res, "%d", -412);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test4
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%d", -0);
+int res2 = sprintf(res, "%d", -0);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test5
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%s", "Hello world");
+int res2 = sprintf(res, "%s", "Hello world");
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test6
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%c", "Hello");
+int res2 = sprintf(res, "%c", "Hello");
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test7
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%s", "Привет мир");
+int res2 = sprintf(res, "%s", "Привет мир");
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test8
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%ld", -12312412);
+int res2 = sprintf(res, "%ld", -12312412);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test9
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%ld", -0);
+int res2 = sprintf(res, "%ld", -0);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test10
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%d", 'A');
+int res2 = sprintf(res, "%d", 'A');
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test16
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%x", -4754);
+int res2 = sprintf(res, "%x", -4754);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test17
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%x", 4754);
+int res2 = sprintf(res, "%x", 4754);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test18
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%x", -0);
+int res2 = sprintf(res, "%x", -0);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test19
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%X", -4754);
+int res2 = sprintf(res, "%X", -4754);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test20
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%X", 4754);
+int res2 = sprintf(res, "%X", 4754);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test21
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%X", -0);
+int res2 = sprintf(res, "%X", -0);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+
+#test test22
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%o", -4754);
+int res2 = sprintf(res, "%o", -4754);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test23
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%o", 4754);
+int res2 = sprintf(res, "%o", 4754);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test24
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%o", -0);
+int res2 = sprintf(res, "%o", -0);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test35
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%f", -4754);
+int res2 = sprintf(res, "%f", -4754);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test36
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%f", 4754);
+int res2 = sprintf(res, "%f", 4754);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test37
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%f", -0);
+int res2 = sprintf(res, "%f", -0);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test38
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%f", 4124124);
+int res2 = sprintf(res, "%f", 4124124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test39
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%f", -4124124);
+int res2 = sprintf(res, "%f", -4124124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test40
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%i", 4124124);
+int res2 = sprintf(res, "%i", 4124124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test41
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%i", -4124124);
+int res2 = sprintf(res, "%i", -4124124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test42
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%i", -0);
+int res2 = sprintf(res, "%i", -0);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test43
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%lu", 4124124);
+int res2 = sprintf(res, "%lu", 4124124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test44
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%lu", -4124124);
+int res2 = sprintf(res, "%lu", -4124124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test45
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%lu", -0);
+int res2 = sprintf(res, "%lu", -0);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test46
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%u", 4124124);
+int res2 = sprintf(res, "%u", 4124124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test47
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%u", -4124124);
+int res2 = sprintf(res, "%u", -4124124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test48
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%u", -0);
+int res2 = sprintf(res, "%u", -0);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test49
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%hu", 41124);
+int res2 = sprintf(res, "%hu", 41124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test50
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%hu", 24124);
+int res2 = sprintf(res, "%hu", 24124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test51
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%hu", -0);
+int res2 = sprintf(res, "%hu", -0);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test52
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%hx", 24124);
+int res2 = sprintf(res, "%hx", 24124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test53
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%hx", 4124);
+int res2 = sprintf(res, "%hx", 4124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test54
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%hx", -0);
+int res2 = sprintf(res, "%hx", -0);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test55
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%lx", 4124124);
+int res2 = sprintf(res, "%lx", 4124124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test56
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%lx", -4124124);
+int res2 = sprintf(res, "%lx", -4124124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test57
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%lx", -0);
+int res2 = sprintf(res, "%lx", -0);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test58
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%hX", 24124);
+int res2 = sprintf(res, "%hX", 24124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test59
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%hX", 24124);
+int res2 = sprintf(res, "%hX", 24124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test60
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%hX", 7654);
+int res2 = sprintf(res, "%hX", 7654);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test61
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%hX", 12345);
+int res2 = sprintf(res, "%hX", 12345);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test62
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%hX", 01);
+int res2 = sprintf(res, "%hX", 01);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test66
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%p", "Hello world");
+int res2 = sprintf(res, "%p", "Hello world");
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test67
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%p", "Hello");
+int res2 = sprintf(res, "%p", "Hello");
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test68
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%p", "Привет мир");
+int res2 = sprintf(res, "%p", "Привет мир");
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test69
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%p", 123);
+int res2 = sprintf(res, "%p", 123);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test70
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%p", 0);
+int res2 = sprintf(res, "%p", 0);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test71
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%p", -123);
+int res2 = sprintf(res, "%p", -123);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test72
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%li", 0);
+int res2 = sprintf(res, "%li", 0);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test73
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%li", -123);
+int res2 = sprintf(res, "%li", -123);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test83
+char buffer[1000] = {0};
+char res[1000] = {0};
+wchar_t string[10] = {'1', '2', 'l', ';', '-', '='};
+int res1 = s21_sprintf(buffer, "%ls", string);
+int res2 = sprintf(res, "%ls", string);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test84
+char buffer[1000] = {0};
+char res[1000] = {0};
+wchar_t string[10] = {'t', 'i', 'r', 'e', 'd'};
+int res1 = s21_sprintf(buffer, "%ls", string);
+int res2 = sprintf(res, "%ls", string);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test85
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%lo", 0);
+int res2 = sprintf(res, "%lo", 0);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test86
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%lo", 412);
+int res2 = sprintf(res, "%lo", 412);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test87
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%ho", 0);
+int res2 = sprintf(res, "%ho", 0);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test88
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%hi", 412);
+int res2 = sprintf(res, "%hi", 412);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test89
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%.*d", 5, -412);
+int res2 = sprintf(res, "%.*d", 5, -412);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test90
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%6d", -412);
+int res2 = sprintf(res, "%6d", -412);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test91
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%-6d", -412);
+int res2 = sprintf(res, "%-6d", -412);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test92
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%hd", (short)78958);
+int res2 = sprintf(res, "%hd", (short)78958);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test93
+char str1[100] = {0};
+char str2[100] = {0};
+int r1 = sprintf(str1, "%-15.20i%20u", 4567899, 43252342u);
+int r2 = s21_sprintf(str2, "%-15.20i%20u", 4567899, 43252342u);
+ck_assert_str_eq(str1, str2);
+ck_assert_int_eq(r1, r2);
+char str3[50] = {0};
+char str4[100] = {0};
+int r3 = sprintf(str3, "%20.0f",  25432.34345);
+int r4 = s21_sprintf(str4, "%20.0f", 25432.34345);
+ck_assert_str_eq(str3, str4);
+ck_assert_int_eq(r3, r4);
+
+
+#test test94
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%lc", 'z');
+int res2 = sprintf(res, "%lc", 'z');
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test95
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%lX", 126);
+int res2 = sprintf(res, "%lX", 126);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test96
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%.6d", -412);
+int res2 = sprintf(res, "%.6d", -412);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test97
+char str1[1000];
+char str2[1000];
+void *p1 = (void *)0x123456789;
+void *p2 = (void *)4325234;
+void *p3 = (void *)0x123f324b;
+void *p4 = (void *)432520;
+int r1 = sprintf(str1, "%p%20p%-15p%10p%-15p%*p%10p%*p", p1, p2, p3, p4, p2,
+					10, p3, p1, 10, p4);
+int r2 = s21_sprintf(str2, "%p%20p%-15p%10p%-15p%*p%10p%*p", p1, p2, p3, p4,
+						p2, 10, p3, p1, 10, p4);
+ck_assert_str_eq(str1, str2);
+ck_assert_int_eq(r1, r2);
+
+#test test98
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%#6d %06d", 4.1122, 4.1122, 1142);
+int res2 = sprintf(res, "%#6d %06d", 4.1122, 4.1122, 1142);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test100
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%+6d %+-6d", 4.1122, 4.1122, 1142);
+int res2 = sprintf(res, "%+6d %+-6d", 4.1122, 4.1122, 1142);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test101
+char str1[1000] = {0};
+char str2[1000] = {0};
+short h = 34;
+long l = 2353423523424;
+int r1 = sprintf(
+            str1, "%-25.10d%-30.2d%10.12d%11d%.8d%7.5d%+-25.8d%+10.2ld%-11.8hd", 253,
+            335, 1234, 34, 10, 25, 666, l, h);
+int r2 = s21_sprintf(
+            str2, "%-25.10d%-30.2d%10.12d%11d%.8d%7.5d%+-25.8d%+10.2ld%-11.8hd", 253,
+            335, 1234, 34, 10, 25, 666, l, h);
+ck_assert_pstr_eq(str1, str2);
+ck_assert_int_eq(r1, r2);
+
+#test test102
+char str1[1000] = {0};
+char str2[1000] = {0};
+wchar_t c1 = 'T', c2 = 'Z';
+int r1 = sprintf(str1, "%10c%-10c%25c%-30c%25c%8c%2c%8c%lc%-50lc", 'a',
+					'f', 'R', 'Q', 10, 'P', 'L', 20, c1, c2);
+int r2 = s21_sprintf(str2, "%10c%-10c%25c%-30c%25c%8c%2c%8c%lc%-50lc", 'a',
+						'f', 'R', 'Q', 10, 'P', 'L', 20, c1, c2);
+ck_assert_pstr_eq(str1, str2);
+ck_assert_int_eq(r1, r2);
+
+#test test104
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "% 6f %-6f", -4.1122, -4.1122, -1142);
+int res2 = sprintf(res, "% 6f %-6f", -4.1122, -4.1122, -1142);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test105
+char str1[1000] = {0};
+char str2[1000] = {0};
+unsigned short h = 115;
+unsigned long l = 123325242342;
+int r1 =
+		sprintf(str1, "%u %15u %-20u %10u %-15.10u %20.8u %7.5u %8.10u %-20.12lu %19hu",
+				(unsigned)4321, (unsigned)34567, (unsigned)12346, (unsigned)234542,
+					(unsigned)10, (unsigned)10, (unsigned)5, (unsigned)2432, l, h);
+int r2 = s21_sprintf(
+		str2, "%u %15u %-20u %10u %-15.10u %20.8u %7.5u %8.10u %-20.12lu %19hu",
+		(unsigned)4321, (unsigned)34567, (unsigned)12346, (unsigned)234542,
+					(unsigned)10, (unsigned)10, (unsigned)5, (unsigned)2432, l, h);
+ck_assert_pstr_eq(str1, str2);
+ck_assert_int_eq(r1, r2);
+
+#test test106
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%#+6d %+-6d", 4.1122, 4.1122, -1142);
+int res2 = sprintf(res, "%#+6d %+-6d", 4.1122, 4.1122, -1142);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test107
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%66d %+-6d", 4.1122, 4.1122, -1142);
+int res2 = sprintf(res, "%66d %+-6d", 4.1122, 4.1122, -1142);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test108
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%o", 34);
+int res2 = sprintf(res, "%o", 34);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test109
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "", 12);
+int res2 = sprintf(res, "", 12);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test110
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%Lf", 18123123123123123123.0L);
+int res2 = sprintf(res, "%Lf", 18123123123123123123.0L);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test111
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%Le", 18123123123123123123.0L);
+int res2 = sprintf(res, "%Le", 18123123123123123123.0L);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test112
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%LE", 18123123123123123123.0L);
+int res2 = sprintf(res, "%LE", 18123123123123123123.0L);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test113
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%-.*Lf\n", 12, 0.00013124121240L);
+int res2 = sprintf(res, "%-.*Lf\n", 12, 0.00013124121240L);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test114
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "% 10Le\n", 12, 0.00013124121240L);
+int res2 = sprintf(res, "% 10Le\n", 12, 0.00013124121240L);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test115
+char buffer[1000] = {0};
+char res[1000] = {0};
+char name[100] = "q aekadfhaasjehgsihgksjhgosiejksZLDgdkxdhgks";
+int res1 = s21_sprintf(buffer, "%100s", name);
+int res2 = sprintf(res, "%100s", name);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test116
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%#o", 012124125125);
+int res2 = sprintf(res, "%#o", 012124125125);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test117
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%-+#x", 0x12124);
+int res2 = sprintf(res, "%-+#x", 0x12124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test118
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%#10X", 0x12124);
+int res2 = sprintf(res, "%#10X", 0x12124);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test120
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%015.10f", 0.12412125125125151215125);
+int res2 = sprintf(res, "%015.10f", 0.12412125125125151215125);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test121
+char buffer[1000] = {0};
+char res[1000] = {0};
+int res1 = s21_sprintf(buffer, "%*.*Le\n", 15, 15, 0.12412125125125151215125L);
+int res2 = sprintf(res, "%*.*Le\n", 15, 15, 0.12412125125125151215125L);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test122
+char buffer[1000] = {0};
+char res[1000] = {0};
+char string[120] = "12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
+int res1 = s21_sprintf(buffer, "%s\n", string);
+int res2 = sprintf(res, "%s\n", string);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);
+
+#test test123
+char buffer[1000] = {0};
+char res[1000] = {0};
+char string[120] = "Vlad";
+int res1 = s21_sprintf(buffer, "%.20s\n", string);
+int res2 = sprintf(res, "%.20s\n", string);
+ck_assert_str_eq(buffer, res);
+ck_assert_int_eq(res1, res2);

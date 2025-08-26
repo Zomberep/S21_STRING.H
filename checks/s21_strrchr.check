@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <string.h>
+#include "../s21_string.h"
+
+#test test1
+char buff[] = "aBbcdefgH1a2igklmwgnopqrdstuw";
+int c = 'd';
+ck_assert_pstr_eq(s21_strrchr(buff, c), strrchr(buff, c));
+
+#test test2
+char buff[] = "aBbcdefgH1a2igklmwgnopqrdstuw";
+int c = '1';
+ck_assert_pstr_eq(s21_strrchr(buff, c), strrchr(buff, c));
+
+#test test3
+char buff[] = "aBbcdefgH1a2igklmwgnopqrdstuw";
+int c = 'Q';
+ck_assert_pstr_eq(s21_strrchr(buff, c), strrchr(buff, c));
+
+#test test4
+char buff[] = "aBbcdefgH1a2igklmwgnopqrdstuw";
+int c = 'q';
+ck_assert_pstr_eq(s21_strrchr(buff, c), strrchr(buff, c));
+
+#test test5
+char buff[] = "aBbcdefgH1a2igklmwgnopqrdstuw";
+int c = 'H';
+ck_assert_pstr_eq(s21_strrchr(buff, c), strrchr(buff, c));
+
+#test test6
+char buff[] = "aBbcdefgH1a2igklmwgnopqrdstuw";
+int c = 'B';
+ck_assert_pstr_eq(s21_strrchr(buff, c), strrchr(buff, c));
+
+#test test7
+char buff[] = "aBbcdefgH1a2igklmwgnopqrdstuw";
+int c = ' ';
+ck_assert_pstr_eq(s21_strrchr(buff, c), strrchr(buff, c));
+
+#test test8
+char buff1[] = "The only support for strings in the actual programming language is that the compiler translates quoted string constants to null-terminated strings.";
+int c = 'T';
+ck_assert_pstr_eq(s21_strrchr(buff1, c), strrchr(buff1, c));
+
+#test test9
+char buff1[] = "The only support for strings in the actual programming language is that the compiler translates quoted string constants to null-terminated strings.";
+int c = 's';
+ck_assert_pstr_eq(s21_strrchr(buff1, c), strrchr(buff1, c));
+
+#test test10
+char buff1[] = "The only support for strings in the actual programming language is that the compiler translates quoted string constants to null-terminated strings.";
+int c = ' ';
+ck_assert_pstr_eq(s21_strrchr(buff1, c), strrchr(buff1, c));
+
+#test test11
+char buff1[] = "The only support for strings in the actual programming language is that the compiler translates quoted string constants to null-terminated strings.";
+int c = 'i';
+ck_assert_pstr_eq(s21_strrchr(buff1, c), strrchr(buff1, c));
+
+#test test12
+char buff1[] = "The only support for strings in the actual programming language is that the compiler translates quoted string constants to null-terminated strings.";
+int c = 't';
+ck_assert_pstr_eq(s21_strrchr(buff1, c), strrchr(buff1, c));

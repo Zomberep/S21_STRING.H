@@ -1,0 +1,120 @@
+#include <stdio.h>
+#include <string.h>
+#include "../s21_string.h"
+
+#test test1
+char buff1[] = "Hello my inside world", buff2[] = "Hello my inside world";
+char *ptr1 = s21_strtok(buff1, " ");
+char *ptr2 = strtok(buff2, " ");
+ck_assert_str_eq(ptr1, ptr2);
+while(ptr1 != NULL && ptr2 != NULL){
+	ptr1 = s21_strtok(NULL, " ");
+	ptr2 = strtok(NULL, " ");
+	ck_assert_pstr_eq(ptr1, ptr2);
+}
+
+#test test2
+char buff3[] = "Hello,my inside world", buff4[] = "Hello,my inside world";
+char *ptr1 = s21_strtok(buff3, " ,");
+char *ptr2 = strtok(buff4, " ,");
+ck_assert_str_eq(ptr1, ptr2);
+while(ptr1 != NULL && ptr2 != NULL){
+	ptr1 = s21_strtok(NULL, " ,");
+	ptr2 = strtok(NULL, " ,");
+	ck_assert_pstr_eq(ptr1, ptr2);
+}
+
+#test test3
+char buff5[] = "Hello my inside world", buff6[] = "Hello my inside world";
+char *ptr1 = s21_strtok(buff5, "Q");
+char *ptr2 = strtok(buff6, "Q");
+ck_assert_str_eq(ptr1, ptr2);
+while(ptr1 != NULL && ptr2 != NULL){
+	ptr1 = s21_strtok(NULL, "Q");
+	ptr2 = strtok(NULL, "Q");
+	ck_assert_pstr_eq(ptr1, ptr2);
+}
+
+#test test4
+char buff7[] = "pu pu, pu. pu! pu", buff8[] = "pu pu, pu. pu! pu";
+char *ptr1 = s21_strtok(buff7, "., !");
+char *ptr2 = strtok(buff8, "., !");
+while(ptr1 != NULL && ptr2 != NULL){
+	ptr1 = s21_strtok(NULL, "., !");
+	ptr2 = strtok(NULL, "., !");
+	ck_assert_pstr_eq(ptr1, ptr2);
+}
+
+#test test5
+char buff7[] = "pu pu, pu. pu! pu", buff8[] = "pu pu, pu. pu! pu";
+char *ptr1 = s21_strtok(buff7, "pu");
+char *ptr2 = strtok(buff8, "pu");
+while(ptr1 != NULL && ptr2 != NULL){
+	ptr1 = s21_strtok(NULL, "pu");
+	ptr2 = strtok(NULL, "pu");
+	ck_assert_pstr_eq(ptr1, ptr2);
+}
+
+#test test6
+char buff1[] = "   1    1    ", buff2[] = "   1    1    ";
+char *ptr1 = s21_strtok(buff1, " ");
+char *ptr2 = strtok(buff2, " ");
+ck_assert_str_eq(ptr1, ptr2);
+while(ptr1 != NULL && ptr2 != NULL){
+	ptr1 = s21_strtok(NULL, " ");
+	ptr2 = strtok(NULL, " ");
+	ck_assert_pstr_eq(ptr1, ptr2);
+}
+
+#test test7
+char buff1[] = "   1    1    ", buff2[] = "   1    1    ";
+char *ptr1 = s21_strtok(buff1, "1");
+char *ptr2 = strtok(buff2, "1");
+ck_assert_str_eq(ptr1, ptr2);
+while(ptr1 != NULL && ptr2 != NULL){
+	ptr1 = s21_strtok(NULL, "1");
+	ptr2 = strtok(NULL, "1");
+	ck_assert_pstr_eq(ptr1, ptr2);
+}
+
+#test test8
+char buff1[] = "   1    1    ", buff2[] = "   1    1    ";
+char *ptr1 = s21_strtok(buff1, "  ");
+char *ptr2 = strtok(buff2, "  ");
+ck_assert_str_eq(ptr1, ptr2);
+while(ptr1 != NULL && ptr2 != NULL){
+	ptr1 = s21_strtok(NULL, "  ");
+	ptr2 = strtok(NULL, "  ");
+	ck_assert_pstr_eq(ptr1, ptr2);
+}
+
+#test test9
+char buff1[] = "   1    1    ", buff2[] = "   1    1    ";
+char *ptr1 = s21_strtok(buff1, "2");
+char *ptr2 = strtok(buff2, "2");
+ck_assert_str_eq(ptr1, ptr2);
+while(ptr1 != NULL && ptr2 != NULL){
+	ptr1 = s21_strtok(NULL, "2");
+	ptr2 = strtok(NULL, "2");
+	ck_assert_pstr_eq(ptr1, ptr2);
+}
+
+#test test10
+char buff7[] = "pu\npu,\npu\npu\npu", buff8[] = "pu\npu,\npu\npu\npu";
+char *ptr1 = s21_strtok(buff7, "\n");
+char *ptr2 = strtok(buff8, "\n");
+while(ptr1 != NULL && ptr2 != NULL){
+	ptr1 = s21_strtok(NULL, "\n");
+	ptr2 = strtok(NULL, "\n");
+	ck_assert_pstr_eq(ptr1, ptr2);
+}
+
+#test test11
+char buff7[] = "\0", buff8[] = "\0";
+char *ptr1 = s21_strtok(buff7, "\n");
+char *ptr2 = strtok(buff8, "\n");
+while(ptr1 != NULL && ptr2 != NULL){
+	ptr1 = s21_strtok(NULL, "\n");
+	ptr2 = strtok(NULL, "\n");
+	ck_assert_pstr_eq(ptr1, ptr2);
+}

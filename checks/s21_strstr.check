@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+#include "../s21_string.h"
+
+#test test1
+char buff1[] = "Hello world";
+char buff2[] = "wo";
+ck_assert_pstr_eq(s21_strstr(buff1, buff2), strstr(buff1, buff2));
+
+#test test2
+char buff1[] = "Hello world";
+char buff2[] = " ";
+ck_assert_pstr_eq(s21_strstr(buff1, buff2), strstr(buff1, buff2));
+
+#test test3
+char buff1[] = "waveblv uevrbiub";
+char buff2[] = "Hello";
+ck_assert_pstr_eq(s21_strstr(buff1, buff2), strstr(buff1, buff2));
+
+#test test4
+char buff1[] = "jhdfvb \0 eivne";
+char buff2[] = "\0";
+ck_assert_pstr_eq(s21_strstr(buff1, buff2), strstr(buff1, buff2));
+
+#test test5
+char buff1[] = "hello world";
+char buff2[] = "helk";
+ck_assert_pstr_eq(s21_strstr(buff1, buff2), strstr(buff1, buff2));

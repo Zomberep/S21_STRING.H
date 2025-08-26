@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include <string.h>
+#include "../s21_string.h"
+
+#test test1
+ck_assert_pstr_eq(s21_strerror(0), strerror(0));
+
+#test test2
+ck_assert_pstr_eq(s21_strerror(20), strerror(20));
+
+#test test3
+ck_assert_pstr_eq(s21_strerror(13), strerror(13));
+
+#test test4
+ck_assert_pstr_eq(s21_strerror(-2), strerror(-2));
+
+#test test5
+ck_assert_pstr_eq(s21_strerror(45), strerror(45));
+
+#test test6
+ck_assert_pstr_eq(s21_strerror(50), strerror(50));
+
+#test test7
+ck_assert_pstr_eq(s21_strerror(64), strerror(64));
+
+#test test8
+ck_assert_pstr_eq(s21_strerror(-15), strerror(-15));
+
+#test test9
+ck_assert_pstr_eq(s21_strerror(999), strerror(999));
+
+#test test10
+ck_assert_pstr_eq(s21_strerror(73), strerror(73));
+
+#test test11
+ck_assert_pstr_eq(s21_strerror(99), strerror(99));
+
+#test test12
+ck_assert_pstr_eq(s21_strerror(76), strerror(76));
+
+#test test13
+ck_assert_pstr_eq(s21_strerror(18), strerror(18));
+
+#test test14
+ck_assert_pstr_eq(s21_strerror(81), strerror(81));
+
+#test test15
+ck_assert_pstr_eq(s21_strerror(95), strerror(95));
+
+#test test16
+ck_assert_pstr_eq(s21_strerror(7), strerror(7));
+
+#test test17
+ck_assert_pstr_eq(s21_strerror(14), strerror(14));
+
+#test test18
+ck_assert_pstr_eq(s21_strerror(21), strerror(21));
+
+#test test19
+ck_assert_pstr_eq(s21_strerror(28), strerror(28));
+
+#test test20
+ck_assert_pstr_eq(s21_strerror(35), strerror(35));
+
+#test test21
+ck_assert_pstr_eq(s21_strerror(31), strerror(31));
+
+#test test22
+ck_assert_pstr_eq(s21_strerror(42), strerror(42));

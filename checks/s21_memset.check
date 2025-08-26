@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <string.h>
+#include "../s21_string.h"
+
+#test put_alpha_two_in_digits
+char buff1[] = "123456";
+char buff2[] = "123456";
+int symbol = 'o';
+ck_assert_pstr_eq(s21_memset(buff1, symbol, 2), memset(buff2, symbol, 2));
+
+#test put_alpha_one_in_digits
+char buff1[] = "123456";
+char buff2[] = "123456";
+int symbol = 'o';
+ck_assert_pstr_eq(s21_memset(buff1, symbol, 1), memset(buff2, symbol, 1));
+
+#test put_digit_two_in_digits
+char buff1[] = "123456";
+char buff2[] = "123456";
+int symbol = '0';
+ck_assert_pstr_eq(s21_memset(buff1, symbol, 2), memset(buff2, symbol, 2));
+
+#test put_digit_one_in_digits
+char buff1[] = "123456";
+char buff2[] = "123456";
+int symbol = '0';
+ck_assert_pstr_eq(s21_memset(buff1, symbol, 1), memset(buff2, symbol, 1));
+
+#test put_alpha_two_in_alphas
+char buff1[] = "abcdifg";
+char buff2[] = "abcdifg";
+int symbol = 'o';
+ck_assert_pstr_eq(s21_memset(buff1, symbol, 2), memset(buff2, symbol, 2));
+
+#test put_alpha_one_in_alphas
+char buff1[] = "abcdifg";
+char buff2[] = "abcdifg";
+int symbol = 'o';
+ck_assert_pstr_eq(s21_memset(buff1, symbol, 1), memset(buff2, symbol, 1));
+
+#test put_digit_two_in_alphas
+char buff1[] = "abcdifg";
+char buff2[] = "abcdifg";
+int symbol = '0';
+ck_assert_pstr_eq(s21_memset(buff1, symbol, 2), memset(buff2, symbol, 2));
+
+#test put_digit_one_in_alphas
+char buff1[] = "abcdifg";
+char buff2[] = "abcdifg";
+int symbol = '0';
+ck_assert_pstr_eq(s21_memset(buff1, symbol, 1), memset(buff2, symbol, 1));
+
+#test clean_string_of_digits
+char buff1[] = "123456";
+char buff2[] = "123456";
+int symbol = ' ';
+size_t len = strlen(buff1);
+ck_assert_pstr_eq(s21_memset(buff1, symbol, len), memset(buff2, symbol, len));
+
+#test clean_string_of_alphas
+char buff1[] = "abcdifg";
+char buff2[] = "abcdifg";
+int symbol = ' ';
+size_t len = strlen(buff1);
+ck_assert_pstr_eq(s21_memset(buff1, symbol, len), memset(buff2, symbol, len));
+
+#test test1
+char buff1[10] = "";
+char buff2[10] = "";
+int symbol = '_';
+size_t len = strlen(buff1);
+ck_assert_pstr_eq(s21_memset(buff1, symbol, len), memset(buff2, symbol, len));
+
+#test test2
+char buff1[10] = {0};
+char buff2[10] = {0};
+int symbol = '_';
+size_t len = strlen(buff1);
+ck_assert_pstr_eq(s21_memset(buff1, symbol, len), memset(buff2, symbol, len));
+
